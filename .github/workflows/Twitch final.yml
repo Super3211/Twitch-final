@@ -1,0 +1,14 @@
+name: Run Twitch API Script
+
+on: [push]  # Runs when you push changes
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest  # Uses an Ubuntu server
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Fetches your code
+      - name: Run Script
+        run: |
+          chmod +x get_twitch_token.sh
+          ./get_twitch_token.sh
