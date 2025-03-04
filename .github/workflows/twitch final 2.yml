@@ -1,0 +1,18 @@
+name: Run Twitch API Script
+
+on: [push]  # Runs when you push changes
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Fetches your code
+
+      - name: Install jq  # Add this step to install jq
+        run: sudo apt-get install jq -y
+
+      - name: Run Script
+        run: |
+          chmod +x get_twitch_token.sh
+          ./get_twitch_token.sh
